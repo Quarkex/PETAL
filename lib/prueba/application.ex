@@ -1,0 +1,32 @@
+defmodule Prueba.Application do
+  # See https://hexdocs.pm/elixir/Application.html
+  # for more information on OTP Applications
+  @moduledoc false
+
+  use Application
+
+  def start(_type, _args) do
+    children = [
+      # Start the Telemetry supervisor
+      PruebaWeb.Telemetry,
+      # Start the PubSub system
+      {Phoenix.PubSub, name: Prueba.PubSub},
+      # Start the Endpoint (http/https)
+      PruebaWeb.Endpoint
+      # Start a worker by calling: Prueba.Worker.start_link(arg)
+      # {Prueba.Worker, arg}
+    ]
+
+    # See https://hexdocs.pm/elixir/Supervisor.html
+    # for other strategies and supported options
+    opts = [strategy: :one_for_one, name: Prueba.Supervisor]
+    Supervisor.start_link(children, opts)
+  end
+
+  # Tell Phoenix to update the endpoint configuration
+  # whenever the application is updated.
+  def config_change(changed, _new, removed) do
+    PruebaWeb.Endpoint.config_change(changed, removed)
+    :ok
+  end
+end
