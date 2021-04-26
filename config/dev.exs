@@ -7,7 +7,7 @@ import Config
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :prueba, PruebaWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: System.get_env("PORT", "4000") |> String.to_integer()],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -35,10 +35,10 @@ config :prueba, PruebaWeb.Endpoint,
 # The `http:` config above can be replaced with:
 #
 #     https: [
-#       port: 4001,
+#       port: String.to_integer(System.get_env("SSL_PORT", "4001"),
 #       cipher_suite: :strong,
-#       keyfile: "priv/cert/selfsigned_key.pem",
-#       certfile: "priv/cert/selfsigned.pem"
+#       keyfile: System.get_env("SSL_KEY_PATH", "priv/cert/selfsigned_key.pem"),
+#       certfile: System.get_env("SSL_CERT_PATH", "priv/cert/selfsigned.pem")
 #     ],
 #
 # If desired, both `http:` and `https:` keys can be

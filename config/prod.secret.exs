@@ -11,12 +11,20 @@ secret_key_base =
     You can generate one by calling: mix phx.gen.secret
     """
 
+lv_signing_salt =
+  System.get_env("LV_SIGNING_SALT") ||
+    raise """
+    environment variable LV_SIGNING_SALT is missing.
+    You can generate one by calling: mix phx.gen.secret 32
+    """
+
 config :prueba, PruebaWeb.Endpoint,
   http: [
-    port: String.to_integer(System.get_env("PORT") || "4000"),
+    port: System.get_env("PORT", "4000") |> String.to_integer(),
     transport_options: [socket_opts: [:inet6]]
   ],
   secret_key_base: secret_key_base
+  live_view: [signing_salt: lv_signing_salt]
 
 # ## Using releases (Elixir v1.9+)
 #

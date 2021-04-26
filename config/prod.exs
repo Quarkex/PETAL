@@ -10,7 +10,7 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :prueba, PruebaWeb.Endpoint,
-  url: [host: "example.com", port: 80],
+  url: [host: System.get_env("DOMAIN", "localhost"), port: System.get_env("PORT", "80") |> String.to_integer()],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
@@ -23,12 +23,12 @@ config :logger, level: :info
 #
 #     config :prueba, PruebaWeb.Endpoint,
 #       ...
-#       url: [host: "example.com", port: 443],
+#       url: [host:System.get_env("DOMAIN", "localhost"), port: System.get_env("SSL_PORT", "443") |> String.to_integer()],
 #       https: [
-#         port: 443,
+#         port: System.get_env("SSL_PORT", "443") |> String.to_integer(),
 #         cipher_suite: :strong,
-#         keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-#         certfile: System.get_env("SOME_APP_SSL_CERT_PATH"),
+#         keyfile: System.get_env("SSL_KEY_PATH", "priv/cert/selfsigned_key.pem"),
+#         certfile: System.get_env("SSL_CERT_PATH", "priv/cert/selfsigned.pem"),
 #         transport_options: [socket_opts: [:inet6]]
 #       ]
 #

@@ -9,11 +9,11 @@ import Config
 
 # Configures the endpoint
 config :prueba, PruebaWeb.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "9eS0/pQIYurduNsqXyZzhSSNOMvoIt79+7pAkytMP/g21dIin9/UccAIGqy3mQmH",
+  url: [host: System.get_env("HOSTNAME", "localhost")],
+  secret_key_base: System.get_env("SECRET_KEY_BASE",  "9eS0/pQIYurduNsqXyZzhSSNOMvoIt79+7pAkytMP/g21dIin9/UccAIGqy3mQmH"),
   render_errors: [view: PruebaWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Prueba.PubSub,
-  live_view: [signing_salt: "K3IJXcZi"]
+  live_view: [signing_salt: System.get_env("LV_SIGNING_SALT", "K3IJXcZi")]
 
 # Configures Elixir's Logger
 config :logger, :console,
