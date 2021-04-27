@@ -26,7 +26,7 @@ defmodule PruebaWeb.PageLive do
   end
 
   defp search(query) do
-    if not PruebaWeb.Endpoint.config(:code_reloader) do
+    if not Web.Endpoint.config(:code_reloader) do
       raise "action disabled when not in development"
     end
 

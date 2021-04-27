@@ -1,9 +1,5 @@
 defmodule PruebaWeb.AssetLinksController do
-
-  @application :localhost
-  alias PruebaWeb, as: Web
-
-  use Web, :controller
+  use PruebaWeb, :controller
 
   def index(conn, _params) do
     {code, payload} = asset_links()

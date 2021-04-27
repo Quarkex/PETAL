@@ -1,8 +1,11 @@
 defmodule PruebaWeb.UserSocket do
   use Phoenix.Socket
 
+  alias Prueba, as: App
+  alias PruebaWeb, as: Web
+
   ## Channels
-  # channel "room:*", PruebaWeb.RoomChannel
+  # channel "room:*", Web.RoomChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
@@ -27,7 +30,7 @@ defmodule PruebaWeb.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     PruebaWeb.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
+  #     Web.Endpoint.broadcast("user_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   @impl true

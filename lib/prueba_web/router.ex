@@ -5,7 +5,7 @@ defmodule PruebaWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {PruebaWeb.LayoutView, :root}
+    plug :put_root_layout, {Web.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -19,19 +19,19 @@ defmodule PruebaWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  scope "/.well-known/assetlinks.json", PruebaWeb do
+  scope "/.well-known/assetlinks.json", Web do
     pipe_through :json_file
 
     get "/", AssetLinksController, :index
   end
 
-  scope "/manifest.json", PruebaWeb do
+  scope "/manifest.json", Web do
     pipe_through :json_file
 
     get "/", ManifestController, :index
   end
 
-  scope "/", PruebaWeb do
+  scope "/", Web do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -40,7 +40,7 @@ defmodule PruebaWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PruebaWeb do
+  # scope "/api", Web do
   #   pipe_through :api
   # end
 
@@ -56,7 +56,7 @@ defmodule PruebaWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: PruebaWeb.Telemetry
+      live_dashboard "/dashboard", metrics: Web.Telemetry
     end
   end
 end

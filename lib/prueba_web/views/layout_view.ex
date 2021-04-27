@@ -7,13 +7,13 @@ defmodule PruebaWeb.LayoutView do
     do: Application.get_env(@application, :title, (System.get_env("TITLE") || "Phoenix Framework"))
 
   def manifest(_conn),
-    do: Routes.static_url(PruebaWeb.Endpoint, "/manifest.json")
+    do: Routes.static_url(Web.Endpoint, "/manifest.json")
 
   def image("favicon", _conn),
-    do: Routes.static_url(PruebaWeb.Endpoint, "/favicon.ico")
+    do: Routes.static_url(Web.Endpoint, "/favicon.ico")
 
   def image(image, _conn),
-    do: Routes.static_url(PruebaWeb.Endpoint, "/images/#{image}")
+    do: Routes.static_url(Web.Endpoint, "/images/#{image}")
 
   def theme_color(assigns, _conn),
     do: assigns[:theme_color] || Application.get_env(@application, :theme_color, (System.get_env("THEME_COLOR") || "white"))
@@ -31,10 +31,10 @@ defmodule PruebaWeb.LayoutView do
     do: assigns[:og_description] || Application.get_env(@application, :og_description, (System.get_env("OG_DESCRIPTION") || "Peace of mind from prototype to production"))
 
   def og(:image, assigns, _conn),
-    do: assigns[:og_image] || Routes.static_url(PruebaWeb.Endpoint, "/images/og_image.png")
+    do: assigns[:og_image] || Routes.static_url(Web.Endpoint, "/images/og_image.png")
 
   def og(:url, assigns, _conn),
-    do: assigns[:og_url] || Routes.static_url(PruebaWeb.Endpoint, "/")
+    do: assigns[:og_url] || Routes.static_url(Web.Endpoint, "/")
 
   def language(_conn),
     do: Application.get_env(@application, :language, (System.get_env("LANGUAGE") || "en"))

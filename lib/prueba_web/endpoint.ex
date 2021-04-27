@@ -1,5 +1,6 @@
 defmodule PruebaWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :prueba
+  alias PruebaWeb, as: Web
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
@@ -10,7 +11,7 @@ defmodule PruebaWeb.Endpoint do
     signing_salt: "dUNNUhbB"
   ]
 
-  socket "/socket", PruebaWeb.UserSocket,
+  socket "/socket", Web.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -49,5 +50,5 @@ defmodule PruebaWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug PruebaWeb.Router
+  plug Web.Router
 end

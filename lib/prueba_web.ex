@@ -21,9 +21,13 @@ defmodule PruebaWeb do
     quote do
       use Phoenix.Controller, namespace: PruebaWeb
 
+      @application :prueba
+      alias Prueba, as: App
+      alias PruebaWeb, as: Web
+
       import Plug.Conn
-      import PruebaWeb.Gettext
-      alias PruebaWeb.Router.Helpers, as: Routes
+      import Web.Gettext
+      alias Web.Router.Helpers, as: Routes
     end
   end
 
@@ -32,6 +36,10 @@ defmodule PruebaWeb do
       use Phoenix.View,
         root: "lib/prueba_web/templates",
         namespace: PruebaWeb
+
+      @application :prueba
+      alias Prueba, as: App
+      alias PruebaWeb, as: Web
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -46,7 +54,6 @@ defmodule PruebaWeb do
     quote do
       use Phoenix.LiveView,
         layout: {PruebaWeb.LayoutView, "live.html"}
-
       unquote(view_helpers())
     end
   end
@@ -54,7 +61,6 @@ defmodule PruebaWeb do
   def live_component do
     quote do
       use Phoenix.LiveComponent
-
       unquote(view_helpers())
     end
   end
@@ -62,6 +68,10 @@ defmodule PruebaWeb do
   def router do
     quote do
       use Phoenix.Router
+
+      @application :prueba
+      alias Prueba, as: App
+      alias PruebaWeb, as: Web
 
       import Plug.Conn
       import Phoenix.Controller
@@ -72,7 +82,10 @@ defmodule PruebaWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import PruebaWeb.Gettext
+      @application :prueba
+      alias Prueba, as: App
+      alias PruebaWeb, as: Web
+      import Web.Gettext
     end
   end
 
@@ -81,15 +94,19 @@ defmodule PruebaWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      @application :prueba
+      alias Prueba, as: App
+      alias PruebaWeb, as: Web
+
       # Import LiveView helpers (live_render, live_component, live_patch, etc)
       import Phoenix.LiveView.Helpers
 
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import PruebaWeb.ErrorHelpers
-      import PruebaWeb.Gettext
-      alias PruebaWeb.Router.Helpers, as: Routes
+      import Web.ErrorHelpers
+      import Web.Gettext
+      alias Web.Router.Helpers, as: Routes
     end
   end
 
