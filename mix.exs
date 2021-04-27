@@ -10,6 +10,7 @@ defmodule Prueba.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
+      releases: [{:prueba, release()}],
       deps: deps()
     ]
   end
@@ -42,8 +43,20 @@ defmodule Prueba.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:bakeware, "~> 0.2.0"},
     ]
   end
+
+  def release do
+    [
+      overwrite: true,
+      cookie: System.get_env("ERLANG_COOKIE", "app"),
+      quiet: true,
+      steps: [:assemble, &Bakeware.assemble/1],
+      strip_beams: Mix.env() == :prod
+    ]
+  end
+
 
   # Aliases are shortcuts or tasks specific to the current project.
   # For example, to install project dependencies and perform other setup tasks, run:
@@ -53,6 +66,8 @@ defmodule Prueba.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
+      assets: ["cmd npm run deploy --prefix assets"],
+      release: ["assets", "phx.digest", "release"],
       setup: ["deps.get", "cmd npm install --prefix assets"]
     ]
   end
