@@ -14,10 +14,29 @@ defmodule PruebaWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :json_file do
+    plug :accepts, ["json"]
+    plug :put_secure_browser_headers
+  end
+
+  scope "/.well-known/assetlinks.json", PruebaWeb do
+    pipe_through :json_file
+
+    get "/", AssetLinksController, :index
+  end
+
+  scope "/manifest.json", PruebaWeb do
+    pipe_through :json_file
+
+    get "/", ManifestController, :index
+  end
+
   scope "/", PruebaWeb do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    live "live/", PageLive, :index
   end
 
   # Other scopes may use custom stacks.

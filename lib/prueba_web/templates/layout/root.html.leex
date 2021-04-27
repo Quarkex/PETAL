@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || title(@conn), suffix: " · Phoenix Framework" %>
+
+    <%= for og_attribute <- ~w{ title description image url }a do %>
+      <meta property="og:<%= "#{og_attribute}" %>" content="<%= og(og_attribute, assigns, @conn) %>"/>
+    <% end %>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="manifest" href="<%= manifest(@conn) %>">
+
+    <link rel="icon" href="<%= image("favicon", @conn) %>" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="<%= image("logo-152.png", @conn) %>">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileImage" content="<%= image("logo-144.png", @conn) %>">
+
+    <meta name="theme-color" content="<%= theme_color(assigns, @conn) %>"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="<%= apple_mobile_web_app_status_bar_style(assigns, @conn) %>">
+    <meta name="msapplication-TileColor" content="<%= msapplication_tilecolor(assigns, @conn) %>">
+
     <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
