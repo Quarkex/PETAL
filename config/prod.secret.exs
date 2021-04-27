@@ -23,7 +23,7 @@ config :prueba, PruebaWeb.Endpoint,
     port: System.get_env("PORT", "4000") |> String.to_integer(),
     transport_options: [socket_opts: [:inet6]]
   ],
-  secret_key_base: secret_key_base
+  secret_key_base: secret_key_base,
   live_view: [signing_salt: lv_signing_salt]
 
 # ## Using releases (Elixir v1.9+)
