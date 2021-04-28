@@ -36,7 +36,7 @@ defmodule PetalWeb.Router do
 
     get "/", PageController, :index
 
-    live "live/", PageLive, :index
+    live "/live/", PageLive, :index
   end
 
   # Other scopes may use custom stacks.
