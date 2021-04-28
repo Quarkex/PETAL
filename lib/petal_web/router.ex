@@ -1,5 +1,5 @@
-defmodule PruebaWeb.Router do
-  use PruebaWeb, :router
+defmodule PetalWeb.Router do
+  use PetalWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]

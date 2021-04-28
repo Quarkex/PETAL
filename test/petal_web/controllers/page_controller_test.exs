@@ -1,5 +1,5 @@
-defmodule PruebaWeb.PageControllerTest do
-  use PruebaWeb.ConnCase
+defmodule PetalWeb.PageControllerTest do
+  use PetalWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

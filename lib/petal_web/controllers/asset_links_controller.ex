@@ -1,5 +1,5 @@
-defmodule PruebaWeb.AssetLinksController do
-  use PruebaWeb, :controller
+defmodule PetalWeb.AssetLinksController do
+  use PetalWeb, :controller
 
   def index(conn, _params) do
     {code, payload} = asset_links()

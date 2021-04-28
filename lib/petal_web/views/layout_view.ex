@@ -1,7 +1,7 @@
-defmodule PruebaWeb.LayoutView do
-  use PruebaWeb, :view
+defmodule PetalWeb.LayoutView do
+  use PetalWeb, :view
 
-  @application :prueba
+  @application :petal
 
   def title(_conn),
     do: Application.get_env(@application, :title, (System.get_env("TITLE") || "Phoenix Framework"))

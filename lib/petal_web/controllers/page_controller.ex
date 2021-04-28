@@ -1,5 +1,5 @@
-defmodule PruebaWeb.PageController do
-  use PruebaWeb, :controller
+defmodule PetalWeb.PageController do
+  use PetalWeb, :controller
 
   def index(conn, _params) do
     render(conn, "index.html")

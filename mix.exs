@@ -1,16 +1,16 @@
-defmodule Prueba.MixProject do
+defmodule Petal.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :prueba,
+      app: :petal,
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      releases: [{:prueba, release()}],
+      releases: [{:petal, release()}],
       deps: deps()
     ]
   end
@@ -20,7 +20,7 @@ defmodule Prueba.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Prueba.Application, []},
+      mod: {Petal.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

@@ -1,12 +1,12 @@
-defmodule PruebaWeb do
+defmodule PetalWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use PruebaWeb, :controller
-      use PruebaWeb, :view
+      use PetalWeb, :controller
+      use PetalWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule PruebaWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: PruebaWeb
+      use Phoenix.Controller, namespace: PetalWeb
 
-      @application :prueba
-      alias Prueba, as: App
-      alias PruebaWeb, as: Web
+      @application :petal
+      alias Petal, as: App
+      alias PetalWeb, as: Web
 
       import Plug.Conn
       import Web.Gettext
@@ -34,12 +34,12 @@ defmodule PruebaWeb do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/prueba_web/templates",
-        namespace: PruebaWeb
+        root: "lib/petal_web/templates",
+        namespace: PetalWeb
 
-      @application :prueba
-      alias Prueba, as: App
-      alias PruebaWeb, as: Web
+      @application :petal
+      alias Petal, as: App
+      alias PetalWeb, as: Web
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -53,7 +53,7 @@ defmodule PruebaWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {PruebaWeb.LayoutView, "live.html"}
+        layout: {PetalWeb.LayoutView, "live.html"}
       unquote(view_helpers())
     end
   end
@@ -69,9 +69,9 @@ defmodule PruebaWeb do
     quote do
       use Phoenix.Router
 
-      @application :prueba
-      alias Prueba, as: App
-      alias PruebaWeb, as: Web
+      @application :petal
+      alias Petal, as: App
+      alias PetalWeb, as: Web
 
       import Plug.Conn
       import Phoenix.Controller
@@ -82,9 +82,9 @@ defmodule PruebaWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      @application :prueba
-      alias Prueba, as: App
-      alias PruebaWeb, as: Web
+      @application :petal
+      alias Petal, as: App
+      alias PetalWeb, as: Web
       import Web.Gettext
     end
   end
@@ -94,9 +94,9 @@ defmodule PruebaWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      @application :prueba
-      alias Prueba, as: App
-      alias PruebaWeb, as: Web
+      @application :petal
+      alias Petal, as: App
+      alias PetalWeb, as: Web
 
       # Import LiveView helpers (live_render, live_component, live_patch, etc)
       import Phoenix.LiveView.Helpers

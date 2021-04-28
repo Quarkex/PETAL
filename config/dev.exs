@@ -6,7 +6,7 @@ import Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :prueba, PruebaWeb.Endpoint,
+config :petal, PetalWeb.Endpoint,
   http: [port: System.get_env("PORT", "4000") |> String.to_integer()],
   debug_errors: true,
   code_reloader: true,
@@ -46,13 +46,13 @@ config :prueba, PruebaWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :prueba, PruebaWeb.Endpoint,
+config :petal, PetalWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/prueba_web/(live|views)/.*(ex)$",
-      ~r"lib/prueba_web/templates/.*(eex)$"
+      ~r"lib/petal_web/(live|views)/.*(ex)$",
+      ~r"lib/petal_web/templates/.*(eex)$"
     ]
   ]
 

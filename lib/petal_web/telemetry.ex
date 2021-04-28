@@ -1,4 +1,4 @@
-defmodule PruebaWeb.Telemetry do
+defmodule PetalWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -42,7 +42,7 @@ defmodule PruebaWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {PruebaWeb, :count_users, []}
+      # {PetalWeb, :count_users, []}
     ]
   end
 end

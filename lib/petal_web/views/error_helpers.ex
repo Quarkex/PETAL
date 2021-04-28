@@ -1,10 +1,10 @@
-defmodule PruebaWeb.ErrorHelpers do
+defmodule PetalWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
 
   use Phoenix.HTML
-  alias PruebaWeb, as: Web
+  alias PetalWeb, as: Web
 
   @doc """
   Generates tag for inlined form input errors.

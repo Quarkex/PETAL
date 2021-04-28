@@ -1,5 +1,5 @@
-defmodule PruebaWeb.PageLive do
-  use PruebaWeb, :live_view
+defmodule PetalWeb.PageLive do
+  use PetalWeb, :live_view
 
   @impl true
   def mount(_params, _session, socket) do

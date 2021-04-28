@@ -1,4 +1,4 @@
-# Prueba
+# PETAL stack
 
 To start your Phoenix server:
 

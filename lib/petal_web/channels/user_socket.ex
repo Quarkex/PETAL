@@ -1,8 +1,8 @@
-defmodule PruebaWeb.UserSocket do
+defmodule PetalWeb.UserSocket do
   use Phoenix.Socket
 
-  alias Prueba, as: App
-  alias PruebaWeb, as: Web
+  alias Petal, as: App
+  alias PetalWeb, as: Web
 
   ## Channels
   # channel "room:*", Web.RoomChannel

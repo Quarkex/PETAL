@@ -1,5 +1,5 @@
-defmodule PruebaWeb.ManifestController do
-  use PruebaWeb, :controller
+defmodule PetalWeb.ManifestController do
+  use PetalWeb, :controller
 
   def index(conn, _params) do
     {code, payload} = manifest()

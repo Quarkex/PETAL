@@ -1,13 +1,13 @@
-defmodule PruebaWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :prueba
-  alias PruebaWeb, as: Web
+defmodule PetalWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :petal
+  alias PetalWeb, as: Web
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_prueba_key",
+    key: "_petal_key",
     signing_salt: "dUNNUhbB"
   ]
 
@@ -23,7 +23,7 @@ defmodule PruebaWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :prueba,
+    from: :petal,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt sw.js)
 
