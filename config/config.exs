@@ -7,6 +7,9 @@
 # General application configuration
 import Config
 
+config :petal,
+  ecto_repos: [Petal.Repo]
+
 # Configures the endpoint
 config :petal, PetalWeb.Endpoint,
   url: [host: System.get_env("HOSTNAME", "localhost")],

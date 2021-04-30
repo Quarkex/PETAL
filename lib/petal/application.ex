@@ -7,6 +7,8 @@ defmodule Petal.Application do
 
   def start(_type, _args) do
     children = [
+      # Start the Ecto repository
+      Petal.Repo,
       # Start the Telemetry supervisor
       PetalWeb.Telemetry,
       # Start the PubSub system
