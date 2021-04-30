@@ -25,13 +25,21 @@ The project is built to be configurable using environment variables.
 Currently we use these:
 
   * "APPLE_MOBILE_WEB_APP_STATUS_BAR_STYLE"
+  * "DATABASE_URL"
   * "ERLANG_COOKIE"
   * "HOSTNAME"
   * "LANGUAGE"
   * "LV_SIGNING_SALT"
+  * "MIX_TEST_PARTITION"
   * "MSAPPLICATION_TILECOLOR"
   * "OG_DESCRIPTION"
   * "OG_TITLE"
+  * "PGDATABASE"
+  * "PGHOST"
+  * "PGPASSWORD"
+  * "PGPORT"
+  * "PGUSER"
+  * "POOL_SIZE"
   * "PORT"
   * "SECRET_KEY_BASE"
   * "SSL_CERT_PATH"
@@ -40,4 +48,3 @@ Currently we use these:
   * "TEST_PORT"
   * "THEME_COLOR"
   * "TITLE"
-
