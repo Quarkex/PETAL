@@ -2,10 +2,11 @@ import Config
 
 # Configure your database
 config :petal, Petal.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "petal_dev",
-  hostname: "localhost",
+  username: System.get_env("PGUSER", "postgres"),
+  password: System.get_env("PGPASSWORD", "postgres"),
+  database: System.get_env("PGDATABASE", "petal_dev"),
+  hostname: System.get_env("PGHOST", "localhost"),
+  port: System.get_env("PGPORT", "5432") |> String.to_integer(),
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
