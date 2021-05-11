@@ -51,6 +51,7 @@ defmodule Petal.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:bakeware, "~> 0.2.0"},
       {:phx_gen_auth, "~> 0.7", only: [:dev], runtime: false},
+      {:chalk_authorization, "~> 0.1.0"},
     ]
   end
 

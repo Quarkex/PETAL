@@ -2,12 +2,27 @@ defmodule Petal.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  use ChalkAuthorization,
+  repo: Petal.Repo,
+  group_permissions: %{
+    "staff" => %{
+      "read_only_resource" => 2,
+      "restricted_resource" => 15
+    },
+    "user" => %{
+      "restricted_resource" => 2
+    }
+  }
+
   @derive {Inspect, except: [:password]}
   schema "users" do
     field :email, :string
     field :password, :string, virtual: true
     field :hashed_password, :string
     field :confirmed_at, :naive_datetime
+    field :superuser, :boolean, default: false, null: false
+    field :groups, {:array, :string}, default: [], null: false
+    field :permissions, {:map, :integer}, default: %{}, null: false
 
     timestamps()
   end
