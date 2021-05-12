@@ -81,6 +81,7 @@ defmodule PetalWeb do
       alias PetalWeb, as: Web
 
       import Plug.Conn
+      import ChalkAuthorization.Plug
       import Phoenix.Controller
       import Phoenix.LiveView.Router
     end
