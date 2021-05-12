@@ -54,6 +54,13 @@ defmodule PetalWeb do
     quote do
       use Phoenix.LiveView,
         layout: {PetalWeb.LayoutView, "live.html"}
+
+      def mount(params, %{"user_token" => user_token} = session, socket),
+        do: mount(params,
+        Map.delete(session, "user_token"),
+        assign(socket, :current_user, PetalWeb.Accounts.get_user_by_session_token(user_token))
+      )
+
       unquote(view_helpers())
     end
   end
