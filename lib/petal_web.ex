@@ -58,7 +58,7 @@ defmodule PetalWeb do
       def mount(params, %{"user_token" => user_token} = session, socket),
         do: mount(params,
         Map.delete(session, "user_token"),
-        assign(socket, :current_user, PetalWeb.Accounts.get_user_by_session_token(user_token))
+        assign(socket, :current_user, Petal.Accounts.get_user_by_session_token(user_token))
       )
 
       unquote(view_helpers())
